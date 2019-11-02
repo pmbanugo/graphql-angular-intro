@@ -1,0 +1,38 @@
+<h3>find book</h3>
+
+<form class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="bookId" class="sr-only">Enter Book ID</label>
+    <input
+      [(ngModel)]="bookId"
+      type="text"
+      class="form-control"
+      name="bookId"
+      placeholder="Enter Book ID"
+    />
+  </div>
+  <button (click)="findBook()" type="submit" class="btn btn-primary mb-2">
+    Find
+  </button>
+</form>
+
+<br />
+<div *ngIf="loading">
+  Loading...
+</div>
+
+<div>{{ error }}</div>
+
+<hr />
+<p>
+  <b>Title:</b><span> {{ book.title }}</span>
+</p>
+<p>
+  <b>Pages:</b><span> {{ book.pages }}</span>
+</p>
+<p>
+  <b>Chapters:</b><span> {{ book.chapters }}</span>
+</p>
+<p>
+  <b>Authors:</b><span> {{ getAuthorNames(book.authors) }}</span>
+</p>
